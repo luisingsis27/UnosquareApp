@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="UnosquareApp.Views.Cells.CellAutos" BackgroundColor="White">
+     <ContentView.Content>
+     
+       
+         <Grid RowSpacing="10" BackgroundColor="Blue" Margin="0,0,0,1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0"
+                        x:Name="lblMa"  TextColor="White" Text=" MARCA"
+                        VerticalTextAlignment="Center"></Label>
+            <Label Grid.Column="0" Grid.Row="1"
+                        x:Name="lblMo" TextColor="White" Text=" MODELO"
+                        VerticalTextAlignment="Center"></Label>
+             <Label Grid.Column="0" Grid.Row="2"
+                        x:Name="lblAn" TextColor="White" Text=" AÑO"
+                        VerticalTextAlignment="Center"></Label>
+
+             <Label Grid.Column="1" Grid.Row="0"
+                        x:Name="lblMarca" TextColor="White" Text="{Binding Marca}"
+                        VerticalTextAlignment="Center"></Label>
+             <Label Grid.Column="1" Grid.Row="1"
+                        x:Name="lblModelo" TextColor="White" Text="{Binding Modelo}"
+                        VerticalTextAlignment="Center"></Label>
+             <Label Grid.Column="1" Grid.Row="2"
+                        x:Name="lblAnio" TextColor="White" Text="{Binding Anio}"
+                        VerticalTextAlignment="Center"></Label>
+
+        </Grid>
+
+           
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cell="clr-namespace:UnosquareApp.Views.Cells"
+    xmlns:vm="clr-namespace:UnosquareApp.ViewModels"
+    x:Class="UnosquareApp.Views.ListPage">
+    <ContentPage.BindingContext>
+        <vm:ListPageVM/>
+    </ContentPage.BindingContext>
+
+     <ContentPage.Content>
+         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+        
+
+
+             <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                 x:Name="lblNamePack" BackgroundColor="Green" TextColor="White" Text="{Binding PackageName, Mode=TwoWay}"
+                     FontSize="Medium" ></Label>
+
+            <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" x:Name="lblListadoAutos" Text="LISTADO"
+                   FontAttributes="Bold" 
+                   FontSize="Title" TextColor="Black" ></Label>
+
+                 
+                <ListView Grid.Column="1" Grid.Row="3" x:Name="lvClientes" Grid.ColumnSpan="2" BackgroundColor="White" SeparatorColor="White"
+                           ItemsSource="{Binding OBAutos}" HasUnevenRows="True"
+				    CachingStrategy="RecycleElement" RowHeight="90">
+			        <ListView.ItemTemplate>
+                        <DataTemplate >
+                           <ViewCell>
+                               <cell:CellAutos></cell:CellAutos>
+				           </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+		        </ListView>
+
+             
+                <Button Grid.Row="3" Grid.Column="2" VerticalOptions="End" HorizontalOptions="End" Command="{Binding AgregarCommand}"
+                       FontSize="Title" x:Name="btnAgregar" Text="+" WidthRequest="80" HeightRequest="80" CornerRadius="40" BackgroundColor="Brown" TextColor="White"></Button>
+            </Grid>
+             
+        <!--</Grid>-->
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local ="clr-namespace:UnosquareApp.Behaviors"
+    x:Class="UnosquareApp.Views.AutosPage">
+
+    <ContentPage.Content>
+         <ScrollView>
+         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="45" />
+               
+                
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+             <!--Marca-->
+            <Label Grid.Column="1" Grid.Row="1"
+                        x:Name="lblMarca" TextColor="Black" Text="Marca"></Label>
+
+             <Entry Grid.Column="1" Grid.Row="2" x:Name="txtMarca" Text="{Binding Marca}" >
+                 <Entry.Behaviors>
+                       <local:NumericValidationBehavior />
+                </Entry.Behaviors>
+             </Entry>
+
+             <!--Modelo-->
+            <Label Grid.Column="1" Grid.Row="3"
+                        x:Name="lblModelo" TextColor="Black" Text="Modelo"></Label>
+
+             <Entry Grid.Column="1" Grid.Row="4" x:Name="txtModelo" Text="{Binding Modelo}" ></Entry>
+
+             <!--Año-->
+             <Label Grid.Column="1" Grid.Row="5"
+                        x:Name="lblAnio" TextColor="Black" Text="Año"></Label>
+
+             <Entry Grid.Column="1" Grid.Row="6" x:Name="txtAnio" Text="{Binding Anio}" ></Entry>
+
+            
+
+             <StackLayout Grid.Column="1" Grid.Row="7" Orientation="Horizontal" >
+                 <Button 
+                     x:Name="btnCancelar" Text="Cancelar" BackgroundColor="Red" TextColor="White" HeightRequest="35" WidthRequest="100" Command="{Binding CancelarCommand}"></Button>
+                 <Button 
+                     x:Name="btnAceptar" Text="Guardar" BackgroundColor="Blue" TextColor="White" HeightRequest="35"  WidthRequest="100" Command="{Binding GuardarCommand}"></Button>
+              </StackLayout>
+         </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
